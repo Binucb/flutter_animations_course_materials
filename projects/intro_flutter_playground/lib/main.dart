@@ -2,12 +2,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'pages/animated_container_page.dart';
 import 'pages/animated_opacity_page.dart';
+import 'pages/binu_animation_contianer.dart';
 import 'pages/tween_animation_builder_page.dart';
 
 enum AnimationExample {
   animatedContainer,
   animatedOpacity,
   tweenAnimationBuilder,
+  binusanimatedContainer,
 }
 
 extension on AnimationExample {
@@ -43,6 +45,8 @@ class MyApp extends StatelessWidget {
           case 'tweenAnimationBuilder':
             return MaterialPageRoute(
                 builder: (_) => TweenAnimationBuilderPage());
+          case 'binusanimatedContainer':
+            return MaterialPageRoute(builder: (_) => BinuAnimation());
           default:
             throw UnimplementedError('Route ${settings.name} not implemented');
         }
@@ -57,7 +61,10 @@ class AnimationExamplesList extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (context, index) {
         final example = AnimationExample.values[index];
+        print('example - $example');
+
         final routeName = describeEnum(example);
+        print('routeName - $routeName');
         return ListTile(
           title: Text(example.capitalizeFirstCharacter()),
           trailing: Icon(Icons.chevron_right),

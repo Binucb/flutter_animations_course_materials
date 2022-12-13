@@ -8,7 +8,7 @@ class TweenAnimationBuilderPage extends StatelessWidget {
         title: Text('TweenAnimationBuilder'),
       ),
       body: Center(
-        child: HSVColorSelector(),
+        child: SingleChildScrollView(child: HSVColorSelector()),
       ),
     );
   }
